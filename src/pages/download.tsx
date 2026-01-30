@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Footer from "@/components/layout/Footer";
 
 const Download = () => {
   const router = useRouter();
@@ -93,6 +94,7 @@ const Download = () => {
           to send us an email.
         </p>
       </div>
+      <Footer />
     </div>
   );
 };
