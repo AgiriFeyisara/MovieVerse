@@ -1,8 +1,8 @@
-import { reviews } from "@/data/reviews"
+import { reviews } from "@/data/reviews";
 const Reviews = () => {
-    return(
-        <section className="px-6 py-16 bg-gray-900">
-      <h2 className="text-2xl font-bold text-center mb-10">
+  return (
+    <section className="px-6 py-16 bg-gray-900">
+      <h2 className="text-2xl font-bold text-center mb-10 text-white">
         What Users Love About MovieVerse
       </h2>
 
@@ -18,6 +18,6 @@ const Reviews = () => {
         ))}
       </div>
     </section>
-    )
-}
-export default Reviews
+  );
+};
+export default Reviews;

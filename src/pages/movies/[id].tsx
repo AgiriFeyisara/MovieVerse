@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { fetchMovieDetails, TMDB_IMAGE_BASE_URL } from "@/lib/tmdb";
+import Footer from "@/components/layout/Footer";
 
 const MovieDetailsPage = () => {
   const router = useRouter();
@@ -147,7 +148,7 @@ const MovieDetailsPage = () => {
           {/* Title & Meta */}
           <h1 className="text-3xl font-bold">{movie.title}</h1>
           <p className="text-gray-400">
-            {movie.release_date?.split("-")[0]} • {movie.runtime} mins •{" "}
+            {movie.release_date?.split("-")[0]} • {movie.runtime} mins • ⭐{" "}
             {movie.vote_average}/10
           </p>
 
@@ -201,25 +202,9 @@ const MovieDetailsPage = () => {
               </div>
             </div>
           )}
-
-          {/* Reviews
-          {movie.reviews?.results.length > 0 && (
-            <div className="mt-6">
-              <h2 className="text-xl font-semibold mb-2">Reviews</h2>
-              <div className="flex flex-col gap-4 max-h-64 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-800">
-                {movie.reviews.results.slice(0, 5).map((review: any) => (
-                  <div key={review.id} className="bg-gray-800 p-4 rounded-lg">
-                    <p className="text-gray-300 italic break-words">
-                      "{review.content}"
-                    </p>
-                    <p className="text-gray-400 mt-2 text-sm">- {review.author}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )} */}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

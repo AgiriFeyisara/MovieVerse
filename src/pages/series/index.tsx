@@ -213,7 +213,10 @@ const SeriesPage = () => {
         )}
 
         {hasMore && !loading && (
-          <button onClick={loadMoreSeries} className="mt-8">
+          <button
+            onClick={loadMoreSeries}
+            className="mt-8 flex m-auto bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+          >
             Load More series
           </button>
         )}
