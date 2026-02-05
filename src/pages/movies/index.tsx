@@ -126,6 +126,12 @@ const MoviesPage = () => {
           ←
         </button>
         <h1 className="text-2xl font-bold">Movies</h1>
+        <Link
+          href="/favorites"
+          className="ml-4 bg-red-600 px-4 py-2 rounded text-white hover:bg-red-700"
+        >
+          Favorites
+        </Link>
       </div>
 
       {/* Search & Filters */}
