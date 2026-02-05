@@ -123,6 +123,46 @@ const SeriesPage = () => {
 
       <div className="px-6 py-6 max-w-7xl mx-auto bg-gray-800 rounded-lg mt-6">
         <SearchBar query={query} setQuery={setQuery} onSubmit={handleSubmit} />
+        <div className="flex gap-2 mt-4 flex-wrap">
+          <select
+            value={selectedCountry}
+            onChange={(e) => setSelectedCountry(e.target.value)}
+            className="bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white"
+          >
+            <option value="">All Countries</option>
+            {countries.map((c) => (
+              <option key={c.code} value={c.code}>
+                {c.name}
+              </option>
+            ))}
+          </select>
+
+          <select
+            value={selectedGenre}
+            onChange={(e) => setSelectedGenre(e.target.value)}
+            className="bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white"
+          >
+            <option value="">All Genres</option>
+            {genres.map((g) => (
+              <option key={g.id} value={g.id}>
+                {g.name}
+              </option>
+            ))}
+          </select>
+
+          <select
+            value={selectedYear}
+            onChange={(e) => setSelectedYear(e.target.value)}
+            className="bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white"
+          >
+            <option value="">All Years</option>
+            {years.map((y) => (
+              <option key={y} value={y}>
+                {y}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <div className="px-6 py-6 max-w-7xl mx-auto">
