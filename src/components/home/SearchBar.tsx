@@ -1,62 +1,31 @@
-import { useState } from "react";
-import { useRouter } from "next/router";
+import React from "react";
 
 interface SearchBarProps {
-  showTypeSelector?: boolean; // optional, default false
+  query: string;
+  setQuery: React.Dispatch<React.SetStateAction<string>>;
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
-const SearchBar = ({ showTypeSelector = false }: SearchBarProps) => {
-  const [query, setQuery] = useState("");
-  const [type, setType] = useState<"movie" | "tv" | "all">("all");
-  const router = useRouter();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!query.trim()) return;
-
-    // Redirect depending on type
-    if (type === "movie") {
-      router.push(`/movies?search=${encodeURIComponent(query)}`);
-    } else if (type === "tv") {
-      router.push(`/series?search=${encodeURIComponent(query)}`);
-    } else {
-      router.push(`/search?query=${encodeURIComponent(query)}`);
-    }
-  };
-
+const SearchBar = ({ query, setQuery, onSubmit }: SearchBarProps) => {
   return (
     <section className="w-full py-10 bg-black">
       <div className="max-w-3xl mx-auto px-6">
         <form
-          onSubmit={handleSubmit}
+          onSubmit={onSubmit}
           className="flex items-center bg-white rounded-lg shadow-lg overflow-hidden"
         >
           <input
             type="text"
-            placeholder="Search for a movie or TV show..."
+            placeholder="Search movies or series..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="flex-1 px-4 py-3 text-gray-900 placeholder-gray-400 outline-none"
           />
 
-          {/* Only show type selector on homepage */}
-          {showTypeSelector && (
-            <select
-              value={type}
-              onChange={(e) =>
-                setType(e.target.value as "movie" | "tv" | "all")
-              }
-              className="bg-gray-200 text-gray-900 px-3 py-3 border-l border-gray-300 outline-none"
-            >
-              <option value="all">All</option>
-              <option value="movie">Movies</option>
-              <option value="tv">TV Shows</option>
-            </select>
-          )}
-
           <button
             type="submit"
-            className="bg-red-600 text-white px-6 py-3 font-semibold hover:bg-red-700 transition"
+            disabled={!query.trim()}
+            className="bg-red-600 px-6 py-3 rounded hover:bg-red-700 transition text-white font-semibold disabled:opacity-50"
           >
             Search
           </button>
