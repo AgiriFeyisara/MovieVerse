@@ -34,14 +34,12 @@ const MoviesPage = () => {
   const dispatch = useAppDispatch();
   const favorites = useAppSelector((state) => state.favorites.items);
 
-  /* ================= LOAD MOVIES ================= */
   useEffect(() => {
     const loadMovies = async () => {
       try {
         setLoading(true);
         setPage(1);
 
-        // FILTER MODE
         if (selectedCountry || selectedGenre || selectedYear) {
           const data = await fetchMoviesByFilters({
             country: selectedCountry,
@@ -75,7 +73,6 @@ const MoviesPage = () => {
     loadMovies();
   }, [searchQuery, selectedCountry, selectedGenre, selectedYear]);
 
-  /* ================= LOAD MORE ================= */
   const loadMoreMovies = async () => {
     if (loadingMore) return;
     setLoadingMore(true);
@@ -111,7 +108,6 @@ const MoviesPage = () => {
     }
   };
 
-  /* ================= SEARCH ================= */
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!query.trim()) return;

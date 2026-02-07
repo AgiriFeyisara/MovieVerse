@@ -28,7 +28,6 @@ const MovieDetailsPage = () => {
         const data = await fetchMovieDetails(id as string);
         setMovie(data);
 
-        // Grab the first trailer from the videos array
         const trailer = data.videos?.results.find(
           (v: any) => v.type === "Trailer" && v.site === "YouTube",
         );
@@ -129,7 +128,7 @@ const MovieDetailsPage = () => {
             >
               Watch Trailer
             </button>
-            {/* This is the favorite button icon */}
+
             <button
               className={`flex-1 py-3 rounded-lg font-semibold transition ${
                 isFavorite
