@@ -1,4 +1,6 @@
-## MovieVerse
+## alx-project-nexus
+
+This repository contains MovieVerse, a movie recommendation web application built as part of the ALX ProDev Frontend Engineering program.
 
 MovieVerse is a movie and TV series recommendation web application that allows users to explore trending content, search titles, filter by categories, and save favorites, all powered by The Movie Database (TMDB) API.
 
